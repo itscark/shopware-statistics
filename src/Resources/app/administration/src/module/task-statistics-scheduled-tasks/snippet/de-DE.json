@@ -1,0 +1,61 @@
+{
+    "task-statistics-scheduled-tasks": {
+        "general": {
+            "textHeadline": "Cronjobs",
+            "mainMenuItemGeneral": "Cronjobs",
+            "description": "Cronjobs anzeigen",
+            "placeholderSearchBar": "Cronjobs durchsuchen"
+        },
+        "grid": {
+            "column": {
+                "name": "Name",
+                "class": "Task-Klasse",
+                "interval": "Intervall",
+                "intervalDetail": {
+                    "0": "Keine Wiederholung (0 Sek.)",
+                    "20": "20 Sek.",
+                    "120": "2 Minuten (120 Sek.)",
+                    "300": "5 Minuten (300 Sek.)",
+                    "600": "10 Minuten (600 Sek.)",
+                    "900": "15 Minuten (900 Sek.)",
+                    "1800": "30 Minuten (1800 Sek.)",
+                    "3600": "1 Stunde (3600 Sek.)",
+                    "7200": "2 Stunden (7200 Sek.)",
+                    "14400": "4 Stunden (14400 Sek.)",
+                    "28800": "8 Stunden (28800 Sek.)",
+                    "43200": "12 Stunden (43200 Sek.)",
+                    "86400": "1 Tag (86400 Sek.)",
+                    "172800": "2 Tage (172800 Sek.)",
+                    "604800": "1 Woche (604800 Sek.)",
+                    "2592000": "30 Tage (2592000 Sek.)",
+                    "seconds": "Sek."
+                },
+                "status": "Status",
+                "lastExecutionTime": "Letzte Ausführung",
+                "nextExecutionTime": "Nächste Ausführung",
+                "error": "Fehler"
+            },
+            "textDeleteConfirm": "Möchten Sie den Task löschen",
+            "modalTitleDelete": "Task löschen",
+            "buttonCancel": "Abbrechen",
+            "buttonDelete": "Löschen",
+            "titleSidebarItemRefresh": "Aktualisieren",
+            "contextMenuEdit": "Bearbeiten"
+        },
+        "detail": {
+            "textHeadline": "Cronjob",
+            "buttonCancel": "Abbrechen",
+            "buttonSave": "Speichern",
+            "fieldNameLabel": "Name",
+            "fieldScheduledTaskClassLabel": "Task-Klasse",
+            "fieldRunIntervalLabel": "Intervall",
+            "fieldStatusLabel": "Status",
+            "fieldLastExecutionTimeLabel": "Letzte Ausführung",
+            "fieldNextExecutionTimeLabel": "Nächste Ausführung",
+            "notificationSaveErrorMessage": "Beim Speichern der Aufgabe ist ein Fehler aufgetreten.",
+            "notificationSaveSuccessMessage": "Die Aufgabe wurde erfolgreich gespeichert.",
+            "notificationSaveSuccessMessageTitle": "Erfolg",
+            "notificationSaveErrorMessageTitle": "Fehler"
+        }
+    }
+}

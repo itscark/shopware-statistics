@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Basic Configuration</title>
+        <title lang="de-DE">Grundeinstellungen</title>
+
+        <input-field type="bool">
+            <name>showScheduledTasks</name>
+            <label>Scheduled Tasks</label>
+            <label lang="de-DE">Geplante Aufgaben</label>
+            <defaultValue>true</defaultValue>
+            <helpText>Show list of scheduled tasks</helpText>
+            <helpText lang="de-DE">Zeige geplante Aufgaben</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showMessageQueueStats</name>
+            <label>Message Queue Stats</label>
+            <label lang="de-DE">Message Queue Statistiken</label>
+            <defaultValue>true</defaultValue>
+            <helpText>Show message queue statistics</helpText>
+            <helpText lang="de-DE">Zeige Message Queue Statistiken</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showDeadMessage</name>
+            <label>Dead Message stats</label>
+            <label lang="de-DE">Dead Message Statistiken</label>
+            <defaultValue>true</defaultValue>
+            <helpText>Show Dead Message statistics</helpText>
+            <helpText lang="de-DE">Zeige Dead Message Statistiken</helpText>
+        </input-field>
+
+        <input-field type="bool">
+            <name>showQueuePerChannel</name>
+            <label>Queue per channel</label>
+            <label lang="de-DE">Queue pro Channel</label>
+            <defaultValue>true</defaultValue>
+            <helpText>Show queue per Channel</helpText>
+            <helpText lang="de-DE">Zeige Queue pro Channel</helpText>
+        </input-field>
+    </card>
+</config>

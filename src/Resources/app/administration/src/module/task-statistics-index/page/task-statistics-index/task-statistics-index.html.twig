@@ -1,0 +1,82 @@
+{% block task_statistics_index %}
+    <sw-page class="task-statistics-index sw-settings-index">
+        {% block task_statistics_index_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block task_statistics_index_smart_bar_header_title %}
+                    <h2>
+                        {% block task_statistics_index_smart_bar_header_title_text %}
+                            {{ $tc('task-statistics-index.index.textHeadline') }}
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block task_statistics_index_content %}
+            <template #content>
+                {% block task_statistics_index_content_card_view %}
+                    <sw-card-view>
+                        {% block task_statistics_index_content_card %}
+                            <sw-card class="task-statistics_index__card">
+                                {% block task_statistics_index_content_grid %}
+                                    <div class="sw-settings__content-grid">
+                                        {% block task_statistics_index_card_item %}
+                                            {% block sw_settings_scheduled_tasks_item %}
+                                                <sw-settings-item
+                                                    v-if="actualConfigData['CarkTaskStatistics.config.showScheduledTasks']"
+                                                    id="settings-task-statistics-scheduled-tasks"
+                                                    :label="$tc('task-statistics-index.index.item.scheduledTasks')"
+                                                    :to="{ name: 'task.statistics.scheduled.tasks.scheduledtasks' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-arrow-switch"/>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_message_queue_stats_item %}
+                                                <sw-settings-item
+                                                    v-if="actualConfigData['CarkTaskStatistics.config.showMessageQueueStats']"
+                                                    id="settings-task-statistics-message-queue-stats"
+                                                    :label="$tc('task-statistics-index.index.item.messageQueueStats')"
+                                                    :to="{ name: 'task.statistics.message.queue.stats.messagequeuestats' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-time-hourglass"/>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_dead_message %}
+                                                <sw-settings-item
+                                                    v-if="actualConfigData['CarkTaskStatistics.config.showDeadMessage']"
+                                                    id="settings-task-statistics-dead-message"
+                                                    :label="$tc('task-statistics-index.index.item.deadMessage')"
+                                                    :to="{ name: 'task.statistics.dead.message.deadmessage' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-basic-x-circle"/>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_queue_per_channel_item %}
+                                                <sw-settings-item
+                                                    v-if="actualConfigData['CarkTaskStatistics.config.showQueuePerChannel']"
+                                                    id="settings-task-statistics-queue-per-channel"
+                                                    :label="$tc('task-statistics-index.index.item.queuePerChannel')"
+                                                    :to="{ name: 'task.statistics.queue.per.channel.queueperchannel' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-building-shop"/>
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+                            </sw-card>
+                        {% endblock %}
+                    </sw-card-view>
+                {% endblock %}
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

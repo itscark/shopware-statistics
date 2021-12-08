@@ -1,0 +1,17 @@
+{
+    "task-statistics-index": {
+        "general": {
+            "mainMenuItemGeneral": "Task Statistics",
+            "descriptionTextModule": "Task statistics for your webshop."
+        },
+        "index": {
+            "textHeadline": "Task Statistics",
+            "item": {
+                "scheduledTasks": "Scheduled Tasks",
+                "messageQueueStats": "Message queue statistics",
+                "queuePerChannel": "Queue per channel",
+                "deadMessage": "Dead Message"
+            }
+        }
+    }
+}

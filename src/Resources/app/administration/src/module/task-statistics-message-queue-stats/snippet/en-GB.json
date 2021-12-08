@@ -1,0 +1,21 @@
+{
+    "task-statistics-message-queue-stats": {
+        "general": {
+            "textHeadline": "Message Queue Stats",
+            "mainMenuItemGeneral": "Message Queue Stats",
+            "description": "Show message queue stats"
+        },
+        "grid": {
+            "title": {
+                "messageQueueStats": "Message queue statistics",
+                "enqueue": "queue per channel"
+            },
+            "column": {
+                "name": "Name",
+                "count": "Count",
+                "size": "Size"
+            },
+            "titleSidebarItemRefresh": "Reload"
+        }
+    }
+}

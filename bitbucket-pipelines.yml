@@ -1,0 +1,12 @@
+image: node:14
+
+pipelines:
+    branches:
+        main:
+            -   step:
+                    name: Run Semantic release
+                    caches:
+                        - node
+                    script:
+                        - npm ci
+                        - npx semantic-release -r $BITBUCKET_GIT_SSH_ORIGIN

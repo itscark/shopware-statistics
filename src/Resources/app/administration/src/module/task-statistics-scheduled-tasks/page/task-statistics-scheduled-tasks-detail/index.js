@@ -1,8 +1,8 @@
 import template from './task-statistics-scheduled-tasks-detail.html.twig';
 
-const {Component} = Shopware;
-const {Mixin} = Shopware;
-const {Filter} = Shopware;
+const { Component } = Shopware;
+const { Mixin } = Shopware;
+const { Filter } = Shopware;
 
 Component.register('task-statistics-scheduled-tasks-detail', {
     template,
@@ -34,31 +34,31 @@ Component.register('task-statistics-scheduled-tasks-detail', {
     computed: {
         status() {
             return [
-                {value: 'scheduled', label: 'scheduled'},
-                {value: 'queued', label: 'queued'},
-                {value: 'running', label: 'running'},
-                {value: 'failed', label: 'failed'},
-                {value: 'inactive', label: 'inactive'},
+                { value: 'scheduled', label: 'scheduled' },
+                { value: 'queued', label: 'queued' },
+                { value: 'running', label: 'running' },
+                { value: 'failed', label: 'failed' },
+                { value: 'inactive', label: 'inactive' },
             ];
         },
         intervals() {
             return [
-                {value: 0, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.0')},
-                {value: 20, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.20')},
-                {value: 120, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.120')},
-                {value: 300, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.300')},
-                {value: 600, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.600')},
-                {value: 900, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.900')},
-                {value: 1800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.1800')},
-                {value: 3600, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.3600')},
-                {value: 7200, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.7200')},
-                {value: 14400, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.14400')},
-                {value: 28800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.28800')},
-                {value: 43200, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.43200')},
-                {value: 86400, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.86400')},
-                {value: 172800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.172800')},
-                {value: 604800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.604800')},
-                {value: 2592000, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.2592000')},
+                { value: 0, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.0') },
+                { value: 20, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.20') },
+                { value: 120, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.120') },
+                { value: 300, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.300') },
+                { value: 600, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.600') },
+                { value: 900, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.900') },
+                { value: 1800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.1800') },
+                { value: 3600, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.3600') },
+                { value: 7200, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.7200') },
+                { value: 14400, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.14400') },
+                { value: 28800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.28800') },
+                { value: 43200, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.43200') },
+                { value: 86400, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.86400') },
+                { value: 172800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.172800') },
+                { value: 604800, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.604800') },
+                { value: 2592000, label: this.$tc('task-statistics-scheduled-tasks.grid.column.intervalDetail.2592000') },
             ];
         },
     },
@@ -86,13 +86,13 @@ Component.register('task-statistics-scheduled-tasks-detail', {
             const messageSaveError = this.$tc(
                 'task-statistics-scheduled-tasks.detail.notificationSaveErrorMessage',
                 0,
-                {title: this.item.title, description: this.item.description},
+                { title: this.item.title, description: this.item.description },
             );
             const titleSaveSuccess = this.$tc('task-statistics-scheduled-tasks.detail.notificationSaveSuccessMessageTitle');
             const messageSaveSuccess = this.$tc(
                 'task-statistics-scheduled-tasks.detail.notificationSaveSuccessMessage',
                 0,
-                {title: this.item.title, description: this.item.description},
+                { title: this.item.title, description: this.item.description },
             );
 
             if (typeof this.item.runInterval === 'string') {

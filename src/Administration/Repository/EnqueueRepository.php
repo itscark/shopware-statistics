@@ -79,12 +79,12 @@ class EnqueueRepository extends EntityRepository
         $query
             ->select('queue as `enqueue.queue`')
             ->addSelect('COUNT(queue) AS `enqueue.count`')
-            ->addSelect('('.$subQuery->getSQL().') AS `enqueue.id`')
+            ->addSelect('(' . $subQuery->getSQL() . ') AS `enqueue.id`')
             ->from('enqueue')
             ->groupBy('queue');
 
         $selects = $query->getQueryPart('select');
-        $selects[0] = 'SQL_CALC_FOUND_ROWS '.$selects[0];
+        $selects[0] = 'SQL_CALC_FOUND_ROWS ' . $selects[0];
         $query->select($selects);
 
         $this->addLimitAndOffset($criteria, $query);
@@ -106,7 +106,7 @@ class EnqueueRepository extends EntityRepository
 
     private function addSorting(Criteria $criteria, QueryBuilder $query): void
     {
-        if (count($criteria->getSorting())) {
+        if (\count($criteria->getSorting())) {
             foreach ($criteria->getSorting() as $sorting) {
                 $field = $sorting->getField();
                 if ('enqueue.count' === $field) {

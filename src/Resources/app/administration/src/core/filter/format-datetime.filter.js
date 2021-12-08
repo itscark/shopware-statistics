@@ -1,4 +1,4 @@
-const {Filter} = Shopware;
+const { Filter } = Shopware;
 
 Filter.register('format_datetime', (value) => {
     const date = new Date(value);

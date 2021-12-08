@@ -55,7 +55,8 @@
                             <template #column-scheduledTaskClass="{ item }">
                                 {% block task_statistics_scheduled_tasks_grid_columns_scheduled_task_class_content %}
                                     <span
-                                        :title="item.scheduledTaskClass">{{ item.scheduledTaskClass|scheduled_task_class_short }}</span>
+                                        :title="item.scheduledTaskClass"
+>{{ item.scheduledTaskClass|scheduled_task_class_short }}</span>
                                 {% endblock %}
                             </template>
                         {% endblock %}
@@ -96,7 +97,8 @@
                             <template #actions="{ item }">
                                 {% block task_statistics_scheduled_tasks_grid_columns_actions_edit %}
                                     <sw-context-menu-item
-                                        :router-link="{ name: 'task.statistics.scheduled.tasks.detail', params: { id: item.id } }">
+                                        :router-link="{ name: 'task.statistics.scheduled.tasks.detail', params: { id: item.id } }"
+>
                                         {{ $tc('task-statistics-scheduled-tasks.grid.contextMenuEdit') }}
                                     </sw-context-menu-item>
                                 {% endblock %}

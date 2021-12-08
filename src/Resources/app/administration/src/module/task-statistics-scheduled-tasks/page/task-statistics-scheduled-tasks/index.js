@@ -1,9 +1,9 @@
 import template from './cark_task_statistics_scheduled_tasks.html.twig';
 import './cark_task_statistics_scheduled_tasks.scss';
 
-const {Component} = Shopware;
-const {Mixin} = Shopware;
-const {Criteria} = Shopware.Data;
+const { Component } = Shopware;
+const { Mixin } = Shopware;
+const { Criteria } = Shopware.Data;
 
 Component.register('task-statistics-scheduled-tasks', {
     template,

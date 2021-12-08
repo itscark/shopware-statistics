@@ -1,8 +1,8 @@
 import template from './cark_task_statistics_queue_per_channel.html.twig';
 
-const {Component} = Shopware;
-const {Mixin} = Shopware;
-const {Criteria} = Shopware.Data;
+const { Component } = Shopware;
+const { Mixin } = Shopware;
+const { Criteria } = Shopware.Data;
 
 Component.register('task-statistics-queue-per-channel', {
     template,

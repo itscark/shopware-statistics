@@ -1,4 +1,4 @@
-const {Component} = Shopware;
+const { Component } = Shopware;
 
 Component.extend('cark-datepicker', 'sw-datepicker', {
     methods: {

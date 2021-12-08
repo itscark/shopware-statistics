@@ -1,13 +1,13 @@
 # Installation
 
 ```bash
-composer config repositories.iwaves-shopware-task-statistics '{"type": "vcs", "url": "git@bitbucket.org:iwaves/shopware-task-statistics.git"}'
+composer config repositories.itscark-shopware-task-statistics '{"type": "vcs", "url": "git@github.com:itscark/shopware-task-statistics.git"}'
 ```
 
 ```bash
-composer require iwaves/shopware-task-statistics
+composer require itscark/shopware-task-statistics
 ```
 
 ```bash
-bin/console plugin:refresh && bin/console plugin:install IwvsTaskStatistics --activate
+bin/console plugin:refresh && bin/console plugin:install CarkTaskStatistics --activate
 ```

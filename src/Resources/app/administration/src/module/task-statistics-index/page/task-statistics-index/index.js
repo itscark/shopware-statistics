@@ -1,6 +1,6 @@
 import template from './task-statistics-index.html.twig';
 
-const {Component} = Shopware;
+const { Component } = Shopware;
 
 Component.register('task-statistics-index', {
     template,

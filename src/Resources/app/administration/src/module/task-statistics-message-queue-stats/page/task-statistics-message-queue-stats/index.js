@@ -1,8 +1,8 @@
 import template from './cark_task_statistics_message_queue_stats.html.twig';
 
-const {Component} = Shopware;
-const {Mixin} = Shopware;
-const {Criteria} = Shopware.Data;
+const { Component } = Shopware;
+const { Mixin } = Shopware;
+const { Criteria } = Shopware.Data;
 
 Component.register('task-statistics-message-queue-stats', {
     template,
@@ -31,8 +31,8 @@ Component.register('task-statistics-message-queue-stats', {
     computed: {
         columns() {
             return [
-                {property: 'name', label: this.$tc('task-statistics-message-queue-stats.grid.column.name')},
-                {property: 'size', label: this.$tc('task-statistics-message-queue-stats.grid.column.size')},
+                { property: 'name', label: this.$tc('task-statistics-message-queue-stats.grid.column.name') },
+                { property: 'size', label: this.$tc('task-statistics-message-queue-stats.grid.column.size') },
             ];
         },
 

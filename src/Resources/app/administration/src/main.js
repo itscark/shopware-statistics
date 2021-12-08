@@ -5,4 +5,4 @@ import './module/task-statistics-dead-message';
 import './module/task-statistics-queue-per-channel';
 import './core/filter/scheduled-task-class.filter';
 import './core/filter/format-datetime.filter';
-import './component/iwvs-datepicker';
+import './component/cark-datepicker';

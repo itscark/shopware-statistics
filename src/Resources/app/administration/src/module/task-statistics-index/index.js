@@ -23,16 +23,16 @@ Shopware.Module.register('task-statistics-index', {
             component: 'task-statistics-index',
             path: 'index',
             icon: 'default-device-server',
-            meta: {
-                parentPath: 'sw.settings.index',
-            },
+            privilege: 'system.system_config',
         },
     },
-    settingsItem: {
-        name: 'task-statistics-index',
-        group: 'plugins',
+    navigation: [{
         label: 'task-statistics-index.general.mainMenuItemGeneral',
-        to: 'task.statistics.index.index',
+        color: '#ff3d58',
+        path: 'task.statistics.index.index',
         icon: 'default-device-server',
-    },
+        parent: 'sw-extension',
+        position: 100,
+        privilege: 'system.system_config',
+    }]
 });

@@ -1,0 +1,78 @@
+{% block statistics_index %}
+    <sw-page class="statistics-index sw-settings-index">
+        {% block statistics_index_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block statistics_index_smart_bar_header_title %}
+                    <h2>
+                        {% block statistics_index_smart_bar_header_title_text %}
+                            {{ $tc('statistics-index.index.textHeadline') }}
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block statistics_index_content %}
+            <template #content>
+                {% block statistics_index_content_card_view %}
+                    <sw-card-view>
+                        {% block statistics_index_content_card %}
+                            <sw-card class="statistics_index__card">
+                                {% block statistics_index_content_grid %}
+                                    <div class="sw-settings__content-grid">
+                                        {% block statistics_index_card_item %}
+                                            {% block sw_settings_scheduled_tasks_item %}
+                                                <sw-settings-item
+                                                    id="settings-statistics-scheduled-tasks"
+                                                    :label="$tc('statistics-index.index.item.scheduledTasks')"
+                                                    :to="{ name: 'statistics.scheduled.tasks.scheduledtasks' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-arrow-switch" />
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_message_queue_stats_item %}
+                                                <sw-settings-item
+                                                    id="settings-statistics-message-queue-stats"
+                                                    :label="$tc('statistics-index.index.item.messageQueueStats')"
+                                                    :to="{ name: 'statistics.message.queue.stats.messagequeuestats' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-time-hourglass" />
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_dead_message %}
+                                                <sw-settings-item
+                                                    id="settings-statistics-dead-message"
+                                                    :label="$tc('statistics-index.index.item.deadMessage')"
+                                                    :to="{ name: 'statistics.dead.message.deadmessage' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-basic-x-circle" />
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                            {% block sw_settings_queue_per_channel_item %}
+                                                <sw-settings-item
+                                                    id="settings-statistics-queue-per-channel"
+                                                    :label="$tc('statistics-index.index.item.queuePerChannel')"
+                                                    :to="{ name: 'statistics.queue.per.channel.queueperchannel' }"
+                                                >
+                                                    <template slot="icon">
+                                                        <sw-icon name="default-building-shop" />
+                                                    </template>
+                                                </sw-settings-item>
+                                            {% endblock %}
+                                        {% endblock %}
+                                    </div>
+                                {% endblock %}
+                            </sw-card>
+                        {% endblock %}
+                    </sw-card-view>
+                {% endblock %}
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

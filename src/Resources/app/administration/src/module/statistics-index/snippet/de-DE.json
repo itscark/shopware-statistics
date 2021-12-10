@@ -1,0 +1,17 @@
+{
+    "statistics-index": {
+        "general": {
+            "mainMenuItemGeneral": "Task Statistiken",
+            "descriptionTextModule": "Task Statistiken für Ihren Webshop."
+        },
+        "index": {
+            "textHeadline": "Task Statistiken",
+            "item": {
+                "scheduledTasks": "Cronjobs",
+                "messageQueueStats": "Message Queue Statistiken",
+                "queuePerChannel": "Queue pro Channel",
+                "deadMessage": "Dead Message"
+            }
+        }
+    }
+}

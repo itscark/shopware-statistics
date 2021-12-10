@@ -1,0 +1,68 @@
+{% block statistics_queue_per_channel %}
+    <sw-page class="statistics-message-queue-stats">
+        {% block statistics_queue_per_channel_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block statistics_queue_per_channel_smart_bar_header_title %}
+                    <h2>
+                        {% block statistics_queue_per_channel_smart_bar_header_title_text %}
+                            {{ $tc('sw-settings.index.title') }}
+                            <sw-icon
+                                name="small-arrow-medium-right"
+                                small
+                            />
+                            {{ $tc('statistics-queue-per-channel.general.textHeadline') }}
+                        {% endblock %}
+
+                        {% block statistics_queue_per_channel_smart_bar_header_amount %}
+                            <span
+                                v-if="!isLoading"
+                                class="sw-page__smart-bar-amount"
+                            >
+                                ({{ total }})
+                            </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_queue_per_channel_content %}
+            <template slot="content">
+                {% block statistics_queue_per_channel_table %}
+                    <sw-entity-listing
+                        v-if="items && !isLoading"
+                        :columns="columns"
+                        :items="items"
+                        :show-selection="false"
+                        :allow-inline-edit="false"
+                        :show-settings="true"
+                        :show-actions="false"
+                        class="queue-per-channel-list"
+                        :repository="entityRepository"
+                    >
+
+                        {% block statistics_queue_per_channel__empty_state %}
+                            <sw-empty-state
+                                v-if="!isLoading && !items"
+                                :title="$tc('statistics-queue-per-channel.grid.contentEmpty')"
+                            />
+                        {% endblock %}
+
+                    </sw-entity-listing>
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_queue_per_channel_sidebar %}
+            <template #sidebar>
+                <sw-sidebar class="statistics-queue-per-channel__sidebar">
+                    {% block statistics_queue_per_channel_sidebar_item %}
+                        <sw-sidebar-item
+                            icon="default-arrow-360-left"
+                            :title="$tc('statistics-queue-per-channel.grid.titleSidebarItemRefresh')"
+                            @click="onRefresh"
+                        />
+                    {% endblock %}
+                </sw-sidebar>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

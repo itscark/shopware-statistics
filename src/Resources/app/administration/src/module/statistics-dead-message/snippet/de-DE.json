@@ -1,0 +1,33 @@
+{
+    "statistics-dead-message": {
+        "general": {
+            "textHeadline": "Dead Message Statistiken",
+            "mainMenuItemGeneral": "Dead Message Statistiken",
+            "description": "Dead Message Statistiken anzeigen",
+            "placeholderSearchBar" : "Dead Messages nach \"Original Message Class\" durchsuchen"
+        },
+        "grid": {
+            "title": {
+                "messageQueueStats": "Dead Message Statistiken",
+                "enqueue": "Queue pro Channel"
+            },
+            "column": {
+                "id": "Id",
+                "originalMessageClass": "Original Message Class",
+                "serializedOriginalMessage": "Serialized Original Message",
+                "handlerClass": "Handler Class",
+                "encrypted": "Encrypted",
+                "errorCount": "Error Count",
+                "nextExecutionTime": "Next Execution Time",
+                "exception": "Exception",
+                "exceptionMessage": "Exception Message",
+                "exceptionFile": "Exception File",
+                "exceptionLine": "Exception Line",
+                "scheduledTaskId": "Scheduled Task Id",
+                "createdAt": "Created At",
+                "updatedAt": "Updated At"
+            },
+            "titleSidebarItemRefresh": "Aktualisieren"
+        }
+    }
+}

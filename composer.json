@@ -1,7 +1,7 @@
 {
-    "name": "itscark/shopware-task-statistics",
+    "name": "itscark/shopware-statistics",
     "version": "1.0.0",
-    "description": "Statistiken zu Scheduled Tasks und Message Queue",
+    "description": "Statistiken zu ihrem Shop",
     "type": "shopware-platform-plugin",
     "license": "proprietary",
     "authors": [
@@ -24,18 +24,18 @@
     },
     "autoload": {
         "psr-4": {
-            "ItsCark\\Shopware\\TaskStatistics\\": "src/"
+            "ItsCark\\Shopware\\Statistics\\": "src/"
         }
     },
     "extra": {
-        "shopware-plugin-class": "ItsCark\\Shopware\\TaskStatistics\\CarkTaskStatistics",
+        "shopware-plugin-class": "ItsCark\\Shopware\\Statistics\\CarkStatistics",
         "label": {
-            "de-DE": "Task Statistiken",
-            "en-GB": "Task Statistics"
+            "de-DE": "Shop Statistiken",
+            "en-GB": "Shop Statistics"
         },
         "description": {
-            "de-DE": "Plugin für Task Statistiken",
-            "en-GB": "Plugin for task statistics"
+            "de-DE": "Plugin für Shop Statistiken",
+            "en-GB": "Plugin for Shop statistics"
         },
         "manufacturerLink": {
             "de-DE": "https://itscark.me/",

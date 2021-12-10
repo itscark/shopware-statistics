@@ -1,0 +1,59 @@
+{% block statistics_message_queue_stats %}
+    <sw-page class="statistics-message-queue-stats">
+        {% block statistics_message_queue_stats_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block statistics_message_queue_stats_smart_bar_header_title %}
+                    <h2>
+                        {% block statistics_message_queue_stats_smart_bar_header_title_text %}
+                            {{ $tc('sw-settings.index.title') }}
+                            <sw-icon
+                                name="small-arrow-medium-right"
+                                small
+                            />
+                            {{ $tc('statistics-message-queue-stats.general.textHeadline') }}
+                        {% endblock %}
+
+                        {% block statistics_message_queue_stats_smart_bar_header_amount %}
+                            <span
+                                v-if="!isLoading"
+                                class="sw-page__smart-bar-amount"
+                            >
+                            ({{ total }})
+                            </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_message_queue_stats_content %}
+            <template slot="content">
+                {% block statistics_message_queue_stats_table %}
+                    <sw-entity-listing
+                        v-if="items && !isLoading"
+                        :columns="columns"
+                        :items="items"
+                        :show-selection="false"
+                        :allow-inline-edit="false"
+                        :allow-delete="false"
+                        :show-actions="false"
+                        class="message-queue-stats-list"
+                        :repository="entityRepository"
+                    />
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_message_queue_stats_sidebar %}
+            <template #sidebar>
+                <sw-sidebar class="statistics-message-queue-stats__sidebar">
+                    {% block statistics_message_queue_stats_sidebar_item %}
+                        <sw-sidebar-item
+                            icon="default-arrow-360-left"
+                            :title="$tc('statistics-message-queue-stats.grid.titleSidebarItemRefresh')"
+                            @click="onRefresh"
+                        />
+                    {% endblock %}
+                </sw-sidebar>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

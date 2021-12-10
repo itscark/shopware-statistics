@@ -1,0 +1,116 @@
+{% block statistics_scheduled_tasks_detail %}
+    <sw-page
+        v-if="item"
+        class="statistics-scheduled-tasks-detail"
+    >
+
+        {% block statistics_scheduled_tasks_detail_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block statistics_scheduled_tasks_detail_smart_bar_header_title %}
+                    <h2>{{ $tc('statistics-scheduled-tasks.detail.textHeadline') }}</h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block statistics_scheduled_tasks_detail_smart_bar_actions %}
+            <template slot="smart-bar-actions">
+                {% block statistics_scheduled_tasks_detail_smart_bar_actions_cancel %}
+                    <sw-button
+                        :disabled="item.isLoading"
+                        :router-link="{ name: 'statistics.scheduled.tasks.scheduledtasks' }"
+                    >
+                        {{ $tc('statistics-scheduled-tasks.detail.buttonCancel') }}
+                    </sw-button>
+                {% endblock %}
+
+                {% block statistics_scheduled_tasks_detail_smart_bar_actions_save %}
+                    <sw-button-process
+                        class="statistics-scheduled-tasks-detail__save-action"
+                        :is-loading="isLoading"
+                        :process-success="processSuccess"
+                        variant="primary"
+                        :disabled="item.isLoading"
+                        @process-finish="saveFinish"
+                        @click="onClickSave"
+                    >
+                        {{ $tc('statistics-scheduled-tasks.detail.buttonSave') }}
+                    </sw-button-process>
+                {% endblock %}
+            </template>
+        {% endblock %}
+
+        {% block statistics_scheduled_tasks_detail_content %}
+            <sw-card-view slot="content">
+                {% block statistics_scheduled_tasks_detail_content_card_id %}
+                    <sw-card
+                        v-if="item"
+                        :is-loading="isLoading"
+                    >
+                        {% block statistics_scheduled_tasks_detail_content_card_name_input %}
+                            <sw-field
+                                v-model="item.name"
+                                class="statistics-scheduled-tasks-detail__item_name"
+                                required
+                                disabled
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldNameLabel')"
+                            />
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_detail_content_card_scheduled_task_class_input %}
+                            <sw-field
+                                v-model="item.scheduledTaskClass"
+                                class="statistics-scheduled-tasks-detail__item_scheduled_task_class"
+                                required
+                                disabled
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldScheduledTaskClassLabel')"
+                            />
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_detail_content_card_run_interval_input %}
+                            <sw-select-field
+                                v-model="item.runInterval"
+                                class="statistics-scheduled-tasks-detail__item_run_interval"
+                                required
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldRunIntervalLabel')"
+                            >
+                                <option
+                                    v-for="interval in intervals"
+                                    :key="interval.value"
+                                    :value="interval.value"
+                                >{{ interval.label }}</option>
+                            </sw-select-field>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_detail_content_card_last_execution_time_input %}
+                            <sw-field
+                                v-model="lastExecutionTime"
+                                class="statistics-scheduled-tasks-detail__item_last_execution_time"
+                                disabled
+                                type="datetime"
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldLastExecutionTimeLabel')"
+                            />
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_detail_content_card_next_execution_time_input %}
+                            <statistics-datepicker
+                                v-model="item.nextExecutionTime"
+                                date-type="datetime-local"
+                                class="statistics-scheduled-tasks-detail__next_execution_time"
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldNextExecutionTimeLabel')"
+                            />
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_detail_content_card_status_input %}
+                            <sw-select-field
+                                v-model="item.status"
+                                class="statistics-scheduled-tasks-detail__item_status"
+                                :label="$tc('statistics-scheduled-tasks.detail.fieldStatusLabel')"
+                            >
+                                <option
+                                    v-for="stat in status"
+                                    :key="stat.value"
+                                    :value="stat.value"
+                                >{{ stat.label }}</option>
+                            </sw-select-field>
+                        {% endblock %}
+                    </sw-card>
+                {% endblock %}
+            </sw-card-view>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

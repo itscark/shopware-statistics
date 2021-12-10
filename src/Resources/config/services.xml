@@ -5,12 +5,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="ItsCark\Shopware\TaskStatistics\Administration\Custom\EnqueueDefinition" public="true">
+        <service id="ItsCark\Shopware\Statistics\Core\Framework\MessageQueue\Enqueue\EnqueueDefinition" public="true">
             <tag name="shopware.entity.definition" entity="enqueue"/>
         </service>
-        <service class="ItsCark\Shopware\TaskStatistics\Administration\Repository\EnqueueRepository"
+        <service class="ItsCark\Shopware\Statistics\Core\Framework\MessageQueue\Enqueue\EnqueueRepository"
                  id="enqueue.repository" public="true">
-            <argument type="service" id="ItsCark\Shopware\TaskStatistics\Administration\Custom\EnqueueDefinition"/>
+            <argument type="service" id="ItsCark\Shopware\Statistics\Core\Framework\MessageQueue\Enqueue\EnqueueDefinition"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Read\EntityReaderInterface"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\VersionManager"/>
             <argument type="service" id="Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearcherInterface"/>

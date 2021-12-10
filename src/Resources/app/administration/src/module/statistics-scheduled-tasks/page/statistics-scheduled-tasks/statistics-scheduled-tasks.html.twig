@@ -1,0 +1,176 @@
+{% block statistics_scheduled_tasks %}
+    <sw-page class="statistics-scheduled-tasks">
+        {% block statistics_scheduled_tasks_search_bar %}
+            <template slot="search-bar">
+                <sw-search-bar
+                    initial-search-type="scheduled_tasks"
+                    :placeholder="$tc('statistics-scheduled-tasks.general.placeholderSearchBar')"
+                    :initial-search="term"
+                    @search="onSearch"
+                />
+            </template>
+        {% endblock %}
+
+        {% block statistics_scheduled_tasks_smart_bar_header %}
+            <template slot="smart-bar-header">
+                {% block statistics_scheduled_tasks_smart_bar_header_title %}
+                    <h2>
+                        {% block statistics_scheduled_tasks_smart_bar_header_title_text %}
+                            {{ $tc('sw-settings.index.title') }}
+                            <sw-icon
+                                name="small-arrow-medium-right"
+                                small
+                            />
+                            {{ $tc('statistics-scheduled-tasks.general.textHeadline') }}
+                        {% endblock %}
+
+                        {% block statistics_scheduled_tasks_smart_bar_header_amount %}
+                            <span
+                                v-if="!isLoading"
+                                class="sw-page__smart-bar-amount"
+                            >
+                                ({{ total }})
+                            </span>
+                        {% endblock %}
+                    </h2>
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_scheduled_tasks_cardview %}
+            <template slot="content">
+                {% block statistics_scheduled_tasks_grid %}
+                    <sw-entity-listing
+                        v-if="items && !isLoading"
+                        :columns="columns"
+                        :items="items"
+                        :show-selection="true"
+                        :allow-inline-edit="false"
+                        :is-record-selectable="(item) => isItemDeletable(item)"
+                        class="scheduled-tasks-list"
+                        :repository="entityRepository"
+                    >
+
+                        {% block statistics_scheduled_tasks_grid_columns_scheduled_task_class %}
+                            <template #column-scheduledTaskClass="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_scheduled_task_class_content %}
+                                    <span
+                                        :title="item.scheduledTaskClass"
+                                    >{{ item.scheduledTaskClass|scheduled_task_class_short }}</span>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_grid_columns_run_interval %}
+                            <template #column-runInterval="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_run_interval_content %}
+                                    {{ getInterval(item.runInterval) }}
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_grid_columns_last_execution_time %}
+                            <template #column-lastExecutionTime="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_last_execution_time_content %}
+                                    {{ item.lastExecutionTime|format_datetime }}
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_grid_columns_next_execution_time %}
+                            <template #column-nextExecutionTime="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_next_execution_time_content %}
+                                    {{ item.nextExecutionTime|format_datetime }}
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_grid_columns_status %}
+                            <template #column-status="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_status_content %}
+                                    <sw-label
+                                        :variant="getStatusStyle(item.status)"
+                                        appearance="pill"
+                                    >
+                                        {{ item.status }}
+                                    </sw-label>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                        {% block statistics_scheduled_tasks_grid_columns_actions %}
+                            <template #actions="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_actions_edit %}
+                                    <sw-context-menu-item
+                                        :router-link="{ name: 'statistics.scheduled.tasks.detail', params: { id: item.id } }"
+                                    >
+                                        {{ $tc('statistics-scheduled-tasks.grid.contextMenuEdit') }}
+                                    </sw-context-menu-item>
+                                {% endblock %}
+
+                                {% block statistics_scheduled_tasks_columns_actions_delete %}
+                                    <sw-context-menu-item
+                                        v-if="isItemDeletable(item)"
+                                        variant="danger"
+                                        @click="onDelete(item.id)"
+                                    >
+                                        {{ $tc('statistics-scheduled-tasks.grid.buttonDelete') }}
+                                    </sw-context-menu-item>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+
+                        {% block statistics_scheduled_tasks_grid_columns_actions_delete %}
+                            <template #action-modals="{ item }">
+                                {% block statistics_scheduled_tasks_delete_modal %}
+                                    <sw-modal
+                                        v-if="showDeleteModal === item.id"
+                                        :title="$tc('statistics-scheduled-tasks.grid.modalTitleDelete')"
+                                        variant="small"
+                                        @modal-close="onCloseDeleteModal"
+                                    >
+                                        {% block statistics_scheduled_tasks_delete_modal_confirm_text %}
+                                            <p>
+                                                {{ $tc('statistics-scheduled-tasks.grid.textDeleteConfirm', 0, { cookieId: item.cookieId }) }}
+                                            </p>
+                                        {% endblock %}
+
+                                        {% block statistics_scheduled_tasks_delete_modal_footer %}
+                                            <template slot="modal-footer">
+                                                {% block statistics_scheduled_tasks_delete_modal_actions_cancel %}
+                                                    <sw-button
+                                                        size="small"
+                                                        @click="onCloseDeleteModal"
+                                                    >
+                                                        {{ $tc('statistics-scheduled-tasks.grid.buttonCancel') }}
+                                                    </sw-button>
+                                                {% endblock %}
+
+                                                {% block statistics_scheduled_tasks_delete_modal_actions_delete %}
+                                                    <sw-button
+                                                        variant="primary"
+                                                        size="small"
+                                                        @click="onConfirmDelete(item.id)"
+                                                    >
+                                                        {{ $tc('statistics-scheduled-tasks.grid.buttonDelete') }}
+                                                    </sw-button>
+                                                {% endblock %}
+                                            </template>
+                                        {% endblock %}
+                                    </sw-modal>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
+                    </sw-entity-listing>
+                {% endblock %}
+            </template>
+        {% endblock %}
+        {% block statistics_scheduled_tasks_sidebar %}
+            <template #sidebar>
+                <sw-sidebar class="statistics-scheduled-tasks__sidebar">
+                    {% block statistics_scheduled_tasks_sidebar_item %}
+                        <sw-sidebar-item
+                            icon="default-arrow-360-left"
+                            :title="$tc('statistics-scheduled-tasks.grid.titleSidebarItemRefresh')"
+                            @click="onRefresh"
+                        />
+                    {% endblock %}
+                </sw-sidebar>
+            </template>
+        {% endblock %}
+    </sw-page>
+{% endblock %}

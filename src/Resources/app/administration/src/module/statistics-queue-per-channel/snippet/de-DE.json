@@ -1,0 +1,20 @@
+{
+    "statistics-queue-per-channel": {
+        "general": {
+            "textHeadline": "Queue pro Channel",
+            "mainMenuItemGeneral": "Queue pro Channel",
+            "description": "Queue pro Channel anzeigen"
+        },
+        "grid": {
+            "title": {
+                "queuePerChannel": "Queue pro Channel"
+            },
+            "contentEmpty": "Keine Queues vorhanden",
+            "column": {
+                "name": "Name",
+                "count": "Anzahl"
+            },
+            "titleSidebarItemRefresh": "Aktualisieren"
+        }
+    }
+}

@@ -1,13 +1,13 @@
 # Installation
 
 ```bash
-composer config repositories.itscark-shopware-task-statistics '{"type": "vcs", "url": "git@github.com:itscark/shopware-task-statistics.git"}'
+composer config repositories.itscark-shopware-statistics '{"type": "vcs", "url": "git@github.com:itscark/shopware-statistics.git"}'
 ```
 
 ```bash
-composer require itscark/shopware-task-statistics
+composer require itscark/shopware-statistics
 ```
 
 ```bash
-bin/console plugin:refresh && bin/console plugin:install CarkTaskStatistics --activate
+bin/console plugin:refresh && bin/console plugin:install CarkStatistics --activate
 ```

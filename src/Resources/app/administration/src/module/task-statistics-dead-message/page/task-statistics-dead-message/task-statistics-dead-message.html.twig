@@ -1,5 +1,15 @@
 {% block task_statistics_dead_message %}
     <sw-page class="task-statistics-dead-message">
+        {% block task_statistics_dead_message_search_bar %}
+            <template slot="search-bar">
+                <sw-search-bar
+                    initial-search-type="dead_message"
+                    :placeholder="$tc('task-statistics-dead-message.general.placeholderSearchBar')"
+                    :initial-search="term"
+                    @search="onSearch"
+                />
+            </template>
+        {% endblock %}
         {% block task_statistics_dead_message_smart_bar_header %}
             <template slot="smart-bar-header">
                 {% block task_statistics_dead_message_smart_bar_header_title %}

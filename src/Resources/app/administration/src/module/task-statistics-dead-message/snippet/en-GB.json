@@ -3,7 +3,8 @@
         "general": {
             "textHeadline": "Dead Message Stats",
             "mainMenuItemGeneral": "Dead Message Stats",
-            "description": "Show dead message stats"
+            "description": "Show dead message stats",
+            "placeholderSearchBar" : "Search Dead Messages by \"Original Message Class\""
         },
         "grid": {
             "title": {

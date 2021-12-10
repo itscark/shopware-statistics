@@ -43,13 +43,21 @@
                         v-if="items && !isLoading"
                         :columns="columns"
                         :items="items"
-                        :show-selection="true"
+                        :show-selection="false"
                         :allow-inline-edit="false"
                         :is-record-selectable="(item) => isItemDeletable(item)"
                         class="scheduled-tasks-list"
                         :repository="entityRepository"
                     >
-
+                        {% block statistics_scheduled_tasks_grid_columns_name %}
+                            <template #column-name="{ item }">
+                                {% block statistics_scheduled_tasks_grid_columns_name_content %}
+                                    <router-link :to="{ name: 'statistics.scheduled.tasks.detail', params: { id: item.id } }">
+                                        {{ item.translated ? item.translated.name : item.name }}
+                                    </router-link>
+                                {% endblock %}
+                            </template>
+                        {% endblock %}
                         {% block statistics_scheduled_tasks_grid_columns_scheduled_task_class %}
                             <template #column-scheduledTaskClass="{ item }">
                                 {% block statistics_scheduled_tasks_grid_columns_scheduled_task_class_content %}

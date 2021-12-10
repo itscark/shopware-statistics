@@ -78,6 +78,11 @@ Component.register('statistics-scheduled-tasks', {
                     allowResize: true,
                 },
                 {
+                    property: 'status',
+                    label: this.$tc('statistics-scheduled-tasks.grid.column.status'),
+                    allowResize: true,
+                },
+                {
                     property: 'lastExecutionTime',
                     label: this.$tc('statistics-scheduled-tasks.grid.column.lastExecutionTime'),
                     allowResize: true,
@@ -85,11 +90,6 @@ Component.register('statistics-scheduled-tasks', {
                 {
                     property: 'nextExecutionTime',
                     label: this.$tc('statistics-scheduled-tasks.grid.column.nextExecutionTime'),
-                    allowResize: true,
-                },
-                {
-                    property: 'status',
-                    label: this.$tc('statistics-scheduled-tasks.grid.column.status'),
                     allowResize: true,
                 },
                 {
@@ -109,6 +109,7 @@ Component.register('statistics-scheduled-tasks', {
         getList() {
             this.isLoading = true;
             const criteria = new Criteria(this.page, this.limit);
+            criteria.addAssociation('deadMessages');
             if (this.term !== '') {
                 criteria.setTerm(this.term);
             }

@@ -24,6 +24,7 @@ Shopware.Module.register('task-statistics-message-queue-stats', {
             icon: 'default-device-server',
             meta: {
                 parentPath: 'task.statistics.index.index',
+                privilege: 'system.system_config',
             },
         },
     },

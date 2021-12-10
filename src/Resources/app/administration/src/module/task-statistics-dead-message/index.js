@@ -24,6 +24,7 @@ Shopware.Module.register('task-statistics-dead-message', {
             icon: 'default-device-server',
             meta: {
                 parentPath: 'task.statistics.index.index',
+                privilege: 'system.system_config',
             },
         },
     },

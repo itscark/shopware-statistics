@@ -26,6 +26,7 @@ Shopware.Module.register('task-statistics-scheduled-tasks', {
             icon: 'default-device-server',
             meta: {
                 parentPath: 'task.statistics.index.index',
+                privilege: 'system.system_config',
             },
         },
         detail: {
@@ -33,6 +34,7 @@ Shopware.Module.register('task-statistics-scheduled-tasks', {
             path: 'detail/:id',
             meta: {
                 parentPath: 'task.statistics.scheduled.tasks.scheduledtasks',
+                privilege: 'system.system_config',
             },
         },
     },

@@ -29,13 +29,10 @@ jobs:
             -   run: npx semantic-release
             -   name: Build Web App
                 run: |
-                    echo "Build Web App"
+                    echo "Update Shop"
             -   uses: convictional/trigger-workflow-and-wait@v1.3.0
                 with:
-                    owner: keithweaver
-                    repo: demo-web-api
+                    owner: itscark
+                    repo: shopware
                     github_token: ${{ secrets.G_ACCESS_TOKEN }}
-                    workflow_file_name: deploy.yml
-            -   name: Deploy Web App
-                run: |
-                    echo "Deploy Web App"s
+                    workflow_file_name: deploy-statistics.yml

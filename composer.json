@@ -1,6 +1,6 @@
 {
     "name": "itscark/shopware-statistics",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Statistiken zu ihrem Shop",
     "type": "shopware-platform-plugin",
     "license": "proprietary",

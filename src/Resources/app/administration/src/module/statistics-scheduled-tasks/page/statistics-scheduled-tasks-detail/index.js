@@ -1,6 +1,5 @@
 import template from './statistics-scheduled-tasks-detail.html.twig';
 import './statistics-scheduled-tasks-detail.scss';
-import {Intervals} from "../../helper/scheduled-task.helper";
 
 const { Component } = Shopware;
 const { Mixin } = Shopware;
@@ -59,7 +58,24 @@ Component.register('statistics-scheduled-tasks-detail', {
             ];
         },
         intervals() {
-            return Intervals;
+            return [
+                { value: 0, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.0') },
+                { value: 20, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.20') },
+                { value: 120, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.120') },
+                { value: 300, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.300') },
+                { value: 600, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.600') },
+                { value: 900, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.900') },
+                { value: 1800, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.1800') },
+                { value: 3600, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.3600') },
+                { value: 7200, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.7200') },
+                { value: 14400, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.14400') },
+                { value: 28800, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.28800') },
+                { value: 43200, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.43200') },
+                { value: 86400, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.86400') },
+                { value: 172800, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.172800') },
+                { value: 604800, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.604800') },
+                { value: 2592000, label: this.$tc('statistics-scheduled-tasks.grid.column.intervalDetail.2592000') },
+            ];
         },
     },
 

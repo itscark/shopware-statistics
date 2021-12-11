@@ -27,3 +27,10 @@ jobs:
                   node-version: ${{ matrix.node-version }}
             - run: npm ci
             - run: npx semantic-release
+            - name: Trigger Shop deploy
+            - uses: convictional/trigger-workflow-and-wait@v1.3.0
+              with:
+                  owner: itscark
+                  repo: shopware
+                  github_token: ${{ secrets.G_ACCESS_TOKEN }}
+                  workflow_file_name: deploy-statistics.yml
